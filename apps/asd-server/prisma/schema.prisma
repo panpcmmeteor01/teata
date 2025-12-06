@@ -1,0 +1,20 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Asda {
+  createdAt   DateTime  @default(now())
+  description String?
+  email       String?
+  firstName   String?
+  id          String    @id @default(cuid())
+  isActive    Boolean?
+  name        String?
+  startDate   DateTime?
+  updatedAt   DateTime  @updatedAt
+}
